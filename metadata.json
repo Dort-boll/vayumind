@@ -1,0 +1,5 @@
+{
+  "name": "VayuMind AI v2",
+  "description": "Advanced Cognitive Evolution Lab. AI-powered neural stimulation, GPU-accelerated visuals, and cross-device performance optimization.",
+  "requestFramePermissions": ["microphone"]
+}
