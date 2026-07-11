@@ -13,6 +13,7 @@ import MetricsPanel from './components/MetricsPanel';
 import AIGuide from './components/AIGuide';
 import NeuralUniverse from './components/NeuralUniverse';
 import SideMenu from './components/SideMenu';
+import IntroScreen from './components/IntroScreen';
 import { NeuralConfig, PuterAIResponse } from './types';
 
 const DEFAULT_CONFIG: NeuralConfig = {
@@ -26,6 +27,7 @@ const DEFAULT_CONFIG: NeuralConfig = {
 };
 
 export default function App() {
+  const [hasEntered, setHasEntered] = useState(false);
   const [config, setConfig] = useState<NeuralConfig>(DEFAULT_CONFIG);
   const [isPaused, setIsPaused] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -143,6 +145,10 @@ export default function App() {
 
     return () => clearInterval(interval);
   }, [isPaused]);
+
+  if (!hasEntered) {
+    return <IntroScreen onEnter={() => setHasEntered(true)} />;
+  }
 
   return (
     <div className="min-h-screen w-full flex flex-col overflow-x-hidden relative bg-black">
